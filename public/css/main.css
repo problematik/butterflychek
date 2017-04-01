@@ -34,3 +34,108 @@ body {
     fill: #1b828e; }
   .menu a.i:hover svg {
     fill: #2ce6ce; }
+
+.container {
+  margin-left: 5.55rem;
+  max-width: 30rem; }
+
+.scores svg:hover {
+  cursor: pointer; }
+
+.scores.selected .state {
+  display: block; }
+
+.scores.selected .items {
+  display: none; }
+
+.scores.selecting .state {
+  display: none; }
+
+.scores.selecting .items {
+  display: block; }
+
+.scores.is-1 .state .is-1 {
+  display: inline-block; }
+
+.scores.is-1 .state .is-2 {
+  display: none; }
+
+.scores.is-1 .state .is-3 {
+  display: none; }
+
+.scores.is-1 .state .is-4 {
+  display: none; }
+
+.scores.is-1 .state .is-5 {
+  display: none; }
+
+.scores.is-2 .state .is-1 {
+  display: none; }
+
+.scores.is-2 .state .is-2 {
+  display: inline-block; }
+
+.scores.is-2 .state .is-3 {
+  display: none; }
+
+.scores.is-2 .state .is-4 {
+  display: none; }
+
+.scores.is-2 .state .is-5 {
+  display: none; }
+
+.scores.is-3 .state .is-1 {
+  display: none; }
+
+.scores.is-3 .state .is-2 {
+  display: none; }
+
+.scores.is-3 .state .is-3 {
+  display: inline-block; }
+
+.scores.is-3 .state .is-4 {
+  display: none; }
+
+.scores.is-3 .state .is-5 {
+  display: none; }
+
+.scores.is-4 .state .is-1 {
+  display: none; }
+
+.scores.is-4 .state .is-2 {
+  display: none; }
+
+.scores.is-4 .state .is-3 {
+  display: none; }
+
+.scores.is-4 .state .is-4 {
+  display: inline-block; }
+
+.scores.is-4 .state .is-5 {
+  display: none; }
+
+.scores.is-5 .state .is-1 {
+  display: none; }
+
+.scores.is-5 .state .is-2 {
+  display: none; }
+
+.scores.is-5 .state .is-3 {
+  display: none; }
+
+.scores.is-5 .state .is-4 {
+  display: none; }
+
+.scores.is-5 .state .is-5 {
+  display: inline-block; }
+
+.scores .state span {
+  cursor: pointer;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EShape%3C%2Ftitle%3E%3Cpath%20d%3D%22M7.94%207.94L7.27%205.92%203.417%202.067l-1.35%201.35L5.923%207.27l2.017.67zM.28.28a.954.954%200%200%200%200%201.35l.993.992%201.35-1.35L1.628.28a.954.954%200%200%200-1.35%200zm10.97%201.97H5.933l.75.75h4.567v8.25H3V6.683l-.75-.75v5.317c0%20.414.336.75.75.75h8.25a.75.75%200%200%200%20.75-.75V3a.75.75%200%200%200-.75-.75z%22%20fill%3D%22%232CE6CE%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") no-repeat 50% #0d4d54; }
+
+.scores .items .items-wrapper {
+  display: flex;
+  justify-content: space-around; }
