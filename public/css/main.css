@@ -1,0 +1,36 @@
+html {
+  font-size: 16px; }
+
+body {
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  display: flex;
+  background-color: #125e67; }
+
+.menu {
+  top: 0;
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0d4d54; }
+  .menu a {
+    margin: 0.4rem; }
+  .menu a.logo {
+    border-radius: .2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.73rem;
+    width: 2.15rem;
+    background-color: #2ce6ce; }
+    .menu a.logo svg {
+      height: 1.33rem;
+      width: 1.75rem; }
+  .menu a.i svg {
+    fill: #1b828e; }
+  .menu a.i:hover svg {
+    fill: #2ce6ce; }

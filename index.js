@@ -7,6 +7,11 @@ const port = argv.p || argv.port || 3000;
 
 app.set('view engine', 'ejs');
 app.use('/assets', expressStaticGzip("public"));
+
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 }).on('error', (err) => {

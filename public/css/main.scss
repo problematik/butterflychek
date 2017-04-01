@@ -1,0 +1,61 @@
+$backgroundColor: #125e67;
+$menuBackgroundColor: #0d4d54;
+$menuLogoBackgroundColor: #2ce6ce;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  display: flex;
+  background-color: $backgroundColor;
+}
+
+$menuSVGHeight: 1.9;
+$menuSVGWidth: 2.5;
+$menuSVGScale: 0.7;
+$menuSVGPadding: 0.4;
+
+.menu {
+  top: 0;
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $menuBackgroundColor;
+
+  a {
+    margin: #{$menuSVGPadding}rem;
+  }
+
+  a.logo {
+    border-radius: .2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: #{$menuSVGHeight * $menuSVGScale + $menuSVGPadding}rem;
+    width: #{$menuSVGWidth * $menuSVGScale + $menuSVGPadding}rem;
+    background-color: $menuLogoBackgroundColor;
+    svg {
+      height: #{$menuSVGHeight * $menuSVGScale}rem;
+      width: #{$menuSVGWidth * $menuSVGScale}rem;
+    }
+  }
+
+  a.i {
+
+    svg {
+      fill: #1b828e;
+    }
+    &:hover {
+      svg {
+        fill: #2ce6ce;
+      }
+    }
+  }
+}
