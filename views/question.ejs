@@ -1,0 +1,34 @@
+<div class="box question">
+    <h3><%= question.statement %></h3>
+
+    <input type="hidden" name="id[]" value="<%- question.id %>">
+    <input type="hidden" name="question[]">
+
+    <div class="picker">
+        <div class="item is-5" data-value="5">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M11 0l3.4 6.94L22 8.054l-5.5 5.402 1.298 7.628-6.798-3.6-6.798 3.6L5.5 13.455 0 8.053 7.6 6.94 11 0z" fill="#DEDEDE" fill-rule="evenodd"></path></svg>
+        </div>
+        <div class="item is-4" data-value="4">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M11 0l3.4 6.94L22 8.054l-5.5 5.402 1.298 7.628-6.798-3.6-6.798 3.6L5.5 13.455 0 8.053 7.6 6.94 11 0z" fill="#DEDEDE" fill-rule="evenodd"></path></svg>
+        </div>
+        <div class="item is-3" data-value="3">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M11 0l3.4 6.94L22 8.054l-5.5 5.402 1.298 7.628-6.798-3.6-6.798 3.6L5.5 13.455 0 8.053 7.6 6.94 11 0z" fill="#DEDEDE" fill-rule="evenodd"></path></svg>
+        </div>
+        <div class="item is-2" data-value="2">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M11 0l3.4 6.94L22 8.054l-5.5 5.402 1.298 7.628-6.798-3.6-6.798 3.6L5.5 13.455 0 8.053 7.6 6.94 11 0z" fill="#DEDEDE" fill-rule="evenodd"></path></svg>
+        </div>
+        <div class="item is-1" data-value="1">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M11 0l3.4 6.94L22 8.054l-5.5 5.402 1.298 7.628-6.798-3.6-6.798 3.6L5.5 13.455 0 8.053 7.6 6.94 11 0z" fill="#DEDEDE" fill-rule="evenodd"></path></svg>
+        </div>
+    </div>
+    <div class="explanation">
+        <div>Agree</div>
+        <div>Disagree</div>
+    </div>
+    <div class="comment">
+        <a href="#">Add comment</a>
+    </div>
+    <div class="text">
+        <textarea name="comment[]" placeholder="Anything to add or suggest to your manager?"></textarea>
+    </div>
+</div>
