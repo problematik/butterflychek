@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="viewport" content="initial-scale=1, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     </head>
     <body>
@@ -13,6 +14,26 @@
         </div>
         <div class="container">
             <%- include('overall') %>
+            <form method="post">
+                <h4>Do you agree with the following statements:</h4>
+
+                <% questions.forEach((question) => { %>
+
+                <%- include('question', { question }) %>
+                <% }) %>
+
+                <div class="box additional">
+                    <div>
+                        <h3>Anything to add?</h3>
+                        <div class="extra-helps">Extra feedback helps</div>
+                    </div>
+                    <textarea name="comment-additional" placeholder="Express yourself freely and safely. This will always remain anonymous."></textarea>
+                </div>
+
+                <button type="submit" disabled>
+                    Send
+                </button>
+            </form>
         </div>
         <script src="assets/js/ender.min.js"></script>
         <script src="assets/js/main.js"></script>

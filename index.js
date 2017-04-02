@@ -3,13 +3,15 @@ const app = express();
 const argv = require('yargs').argv;
 const expressStaticGzip = require("express-static-gzip");
 
+const questions = require('./questions').provide();
+
 const port = argv.p || argv.port || 3000;
 
 app.set('view engine', 'ejs');
 app.use('/assets', expressStaticGzip("public"));
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { questions });
 });
 
 app.listen(port, () => {
