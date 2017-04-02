@@ -119,3 +119,40 @@ class Question {
     }
 }
 
+class App {
+    constructor() {
+        this.overall = new Overall();
+
+        this.questions = [];
+
+        $('.question').each((el) => {
+            const question = new Question(el);
+            this.questions.push(question);
+
+            question.onValueSet(this.questionValueSet.bind(this))
+        });
+
+        this.submitEnabled = false;
+        this.submit = $('form button[type=submit]');
+    }
+
+    questionValueSet() {
+        if(this.submitEnabled) {
+            return;
+        }
+
+        let valid = true;
+        this.questions.forEach((question) => {
+           if(question.value === null) {
+               valid = false;
+           }
+        });
+
+        if(valid) {
+            this.submitEnabled = true;
+            this.submit.removeAttr('disabled');
+        }
+    }
+}
+
+const app = new App();
