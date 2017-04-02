@@ -7,6 +7,7 @@ html {
 }
 
 body {
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
   flex-direction: row;
@@ -18,6 +19,10 @@ $menuSVGHeight: 1.9;
 $menuSVGWidth: 2.5;
 $menuSVGScale: 0.7;
 $menuSVGPadding: 0.4;
+
+h4 {
+  color: white;
+}
 
 .menu {
   top: 0;
@@ -71,12 +76,13 @@ $menuSVGPadding: 0.4;
   }
   &.selected {
     .state {
-      display: block;
+      display: flex;
     }
     .items {
       display: none;
     }
   }
+
 
   &.selecting {
     .state {
@@ -90,7 +96,7 @@ $menuSVGPadding: 0.4;
     @for $j from 1 through 5 {
       &.is-#{$i} .state .is-#{$j} {
         @if $j == $i {
-          display: inline-block;
+          display: flex;
         } @else {
           display: none;
         }
@@ -99,18 +105,398 @@ $menuSVGPadding: 0.4;
   }
 
   .state {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .text {
+      color: #fff;
+      margin-left: 1em;
+
+      p:last-child {
+        font-size: 0.8rem;
+        color: #2ad9c5;
+        strong {
+          font-weight: 800;
+        }
+      }
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background-color: white;
+      border-radius: 50%;
+      border: 5px solid white;
+
+      p {
+        margin-left: 1em;
+      }
+    }
     span {
       cursor: pointer;
       display: inline-block;
-      height: 1em;
-      width: 1em;
+      height: 2em;
+      width: 2em;
       background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EShape%3C%2Ftitle%3E%3Cpath%20d%3D%22M7.94%207.94L7.27%205.92%203.417%202.067l-1.35%201.35L5.923%207.27l2.017.67zM.28.28a.954.954%200%200%200%200%201.35l.993.992%201.35-1.35L1.628.28a.954.954%200%200%200-1.35%200zm10.97%201.97H5.933l.75.75h4.567v8.25H3V6.683l-.75-.75v5.317c0%20.414.336.75.75.75h8.25a.75.75%200%200%200%20.75-.75V3a.75.75%200%200%200-.75-.75z%22%20fill%3D%22%232CE6CE%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") no-repeat 50% #0d4d54;
     }
   }
   .items {
+    background-color: #0d4d54;
+    color: #fff;
+    padding: 1.5rem;
+
     .items-wrapper {
+      margin-top: 1rem;
       display: flex;
       justify-content: space-around;
+
+      .item {
+        height: 2rem;
+        width: 2rem;
+        justify-items: center;
+        display: flex;
+        &:hover svg {
+          background-color: white;
+          border-radius: 50%;
+          border: 3px solid white;
+          height: 1.8rem;
+          width: 1.8rem;
+        }
+      }
     }
+  }
+
+  @for $i from 1 through 5 {
+    &.is-#{$i} .items-wrapper .is-#{$i} svg{
+      background-color: white;
+      border-radius: 50%;
+      border: 3px solid white;
+      height: 1.8rem;
+      width: 1.8rem;
+    }
+  }
+
+  &.selected {
+    @for $i from 1 through 5 {
+      &.is-#{$i} .is-#{$i} {
+        svg {
+          height: 8rem;
+          width: 8rem;
+        }
+      }
+    }
+  }
+}
+
+.overall {
+  margin-top: 2rem;
+}
+
+.question {
+  .explanation {
+    font-size: 0.8em;
+    color: #c7c7c7;
+  }
+  .explanation, .comment, .text, .picker{
+    margin-top: 1em;
+  }
+
+  .comment {
+    text-align: center;
+    a {
+      color: #2ce6ce;
+    }
+  }
+  .text {
+    display: none;
+  }
+
+  .picker {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .picker {
+    &.is-1, &.is-2, &.is-3 {
+      + div + div {
+        display: none;
+      }
+      + div + div + div {
+        display: block;
+      }
+    }
+    &.comment-activated {
+      + div + div {
+        display: none !important;
+      }
+      + div + div + div {
+        display: block !important;
+      }
+    }
+  }
+  .explanation {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+form {
+  button {
+    font-size: 2em;
+
+    &:after {
+      content: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2225%22%20height%3D%2215%22%20viewBox%3D%220%200%2025%2015%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M.25%207.392a1%201%200%200%200%201%201h19.586l-4.292%204.292a1%201%200%201%200%201.414%201.414l6-6a.99.99%200%200%200%20.292-.702v-.004c0-.13-.026-.26-.078-.382a.99.99%200%200%200-.216-.324l-6-6A1%201%200%200%200%2016.542%202.1l4.294%204.292H1.25a1%201%200%200%200-1%201z%22%20fill%3D%22%23DEDEDE%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E")
+    }
+  }
+}
+
+.company {
+  color: #fff;
+  position: absolute;
+  right: 2rem;
+}
+
+.box {
+  margin-bottom: 1rem;
+  border-radius: 0.2rem;
+  position: relative;
+  padding: 1rem;
+  background-color: #ffffff;
+
+  &:before {
+    content: '';
+    left: 0;
+    margin-left: -8px;
+    position: absolute;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid white;
+  }
+
+  textarea {
+    margin-top: 0.8rem;
+  }
+
+  h3 {
+    color: #757575;
+  }
+}
+
+.question {
+
+  .picker {
+    border: 1px solid #ededed;
+    background-color: #f7f7f7;
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+
+    display: flex;
+    flex-direction: row-reverse;
+    //border-radius: 0.7rem;
+    margin-left: -0.1rem;
+    margin-right: -0.1rem;
+
+    & .is-2:hover {
+
+    }
+
+    .item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2rem;
+      width: 3rem;
+
+      svg {
+        padding: 0.3rem;
+        border-radius: 2rem;
+
+        margin-top: -0.7rem;
+        margin-bottom: -0.7rem;
+        background-color: transparent;
+      }
+
+
+      // on hover their circle gets colored
+      &:hover {
+        svg {
+          padding: 0.7rem;
+          background-color: #1b828e;
+        }
+      }
+
+      // first one has different circle color
+      &.is-1:hover {
+        svg {
+          background-color: #e95666;
+        }
+      }
+
+      // last one star is different color
+      &.is-5:hover {
+        svg path {
+          fill: #ffdc00;
+        }
+      }
+    }
+
+
+    // when we have picker value set
+    &.is-1 .item.is-1 {
+      svg {
+        padding: 0.7rem;
+        background-color: #e95666;
+      }
+    }
+
+    $colors: (1: #f98371, 2: #f98371, 3: #f7a062, 4: #ffdc00, 5: #ffdc00);
+
+    &:hover {
+      div {
+        background: transparent !important;
+        svg {
+          background-color: transparent !important;
+          path {
+            fill: #dedede !important;
+          }
+        }
+      }
+    }
+    @for $i from 1 through 5 {
+
+      // when one is hovered all other should be reset
+      & .item.is-#{$i}:hover {
+        @if $i == 5 {
+          background: linear-gradient(90deg, #{map-get($colors, $i)} 100%,transparent 0) !important;
+        } @else {
+          background: linear-gradient(90deg, #{map-get($colors, $i)} 50%,transparent 0) !important;
+        }
+
+        svg {
+          background-color: #1b828e !important;
+        }
+        & ~ div {
+          background: linear-gradient(90deg, #{map-get($colors, $i)} 100%,transparent 0) !important;
+
+          svg {
+            background-color: transparent;
+
+            path {
+              fill: white !important;
+            }
+          }
+        }
+      }
+
+      // when one is selected
+      &.is-#{$i} .item.is-#{$i} {
+
+        @if $i == 5 {
+          // if i want to hide the first one
+          //background: linear-gradient(90deg, transparent, transparent 50%, #{map-get($colors, $i)} 50%, #{map-get($colors, $i)})
+          background: linear-gradient(90deg, #{map-get($colors, $i)} 100%,transparent 0);
+        } @else {
+          background: linear-gradient(90deg, #{map-get($colors, $i)} 50%,transparent 0);
+        }
+
+        & ~ div {
+          background: linear-gradient(90deg, #{map-get($colors, $i)} 100%,transparent 0);
+
+          svg path {
+            fill: white;
+          }
+        }
+        svg {
+          padding: 0.7rem;
+          @if $i == 1 {
+            background-color: #e95666;
+          } @else {
+            background-color: #1b828e;
+          }
+
+
+          @if $i == 5 {
+            path {
+              fill: #ffdc00;
+            }
+          }
+        }
+      }
+    }
+
+    $radius: 1.3rem;
+    & .item.is-1 {
+      border-top-left-radius: $radius;
+      border-bottom-left-radius: $radius;
+    }
+    & .item.is-5 {
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+    }
+    & .item.is-1:hover {
+      svg {
+        background-color: #e95666 !important;
+      }
+    }
+    & .item.is-5:hover {
+      svg {
+        path {
+          fill: #ffdc00 !important;
+        }
+      }
+    }
+  }
+}
+
+.additional {
+  &:before {
+    border-right: 8px solid #1b828e;
+  }
+
+  background-color: #1b828e;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .extra-helps {
+    font-size: 0.8em;
+    color: white;
+    background-color: #0d4d54;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h3 {
+    color: white;
+  }
+}
+
+h3 {
+  font-size: 1.8em;
+  padding: 0;
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 5rem;
+  font-size: 1em;
+  padding: 1em;
+  border: 2px solid #166e78;
+  &:focus {
+    outline: none !important;
+    border: 2px solid #166e78;
   }
 }
