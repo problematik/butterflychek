@@ -85,10 +85,37 @@ class Overall {
     }
 }
 
+class Question {
+    constructor(el) {
+        this.VALUE_SET = 'VALUE_SET';
+
+        this.el = $(el);
+        this.pickerEl = this.el.find('.picker');
+        this.input = this.el.find('input[name^=question]');
+
+        this.el.find('.comment a').on('click', this.commentClicked.bind(this));
+
+        this.value = null;
+
+        this.picker = new Picker(this.pickerEl, {initialValue: null});
+        this.picker.on(this.picker.VALUE_CHANGED, () => {
+            this.value = this.picker.value;
+            this.setInputValue();
+            this.el.emit(this.VALUE_SET);
+        });
     }
-    setParentScore() {
-        this.el.addClass(`is-${this.score}`);
+
+    setInputValue() {
+        this.input.val(this.value);
+    }
+
+    commentClicked(e) {
+        e.preventDefault();
+        this.pickerEl.addClass('comment-activated');
+    }
+
+    onValueSet(callback) {
+        this.el.on(this.VALUE_SET, callback);
     }
 }
 
-new Overall();
