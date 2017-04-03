@@ -123,6 +123,9 @@ h4 {
     }
 
     .item {
+      flex: none;
+      width: 8rem;
+      height: 8rem;
       display: flex;
       align-items: center;
       color: #fff;
