@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use('/assets', expressStaticGzip("public"));
 
 app.get('/', (req, res) => {
-    res.render('index', { questions });
+    res.render('index', { view: 'questions', data: questions });
 });
 
 app.listen(port, () => {
